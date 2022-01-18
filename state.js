@@ -191,7 +191,7 @@ class JumpingLeft extends State {
     enter(){
         this.player.frameY = 3;
         if(this.player.onGround()){
-            this.player.vy -= 20
+            this.player.vy -= 10
         }
         this.player.speed = -this.player.maxSpeed*0.5;
         this.player.rightView = false;
@@ -219,7 +219,7 @@ class JumpingRight extends State {
     enter(){
         this.player.frameY = 2;
         if(this.player.onGround()){
-            this.player.vy -= 20
+            this.player.vy -= 10
         }
         this.player.speed = this.player.maxSpeed*0.5;
         this.player.rightView = true;
