@@ -13,7 +13,22 @@ class Bullet {
         this.radiant = 10;
         this.height = 20;
         this.speed = 0;
-        this.maxSpeed = 10;
+        this.maxSpeed =  30; 
+
+        this.image = new Image();
+        if(this.rightView){
+            this.image.src = "bullet_right.png";
+            this.sy = 210;
+        }
+        else{
+            this.image.src = "bullet_left.png"
+            this.sy = 121;
+        }
+        this.spriteWidth = 48;
+        this.spriteHeight = 14;
+        this.frameX = 0;
+        this.maxFrame = 4;
+        this.sx = 12;
     }
 
     update(){
@@ -30,11 +45,16 @@ class Bullet {
     }
 
     draw(context){
-        context.beginPath();
-        context.arc(this.x, this.y, this.radiant, 0, 2*Math.PI)
-        context.stroke();
-        context.fillStyle = "red";
-        context.fill();
+        if(this.frameX < this.maxFrame) {
+            this.sx += 90;
+            this.frameX ++;
+        }
+        else{
+            this.frameX = 0;
+            this.sx = 12;
+        }
+        console.log(this.sx)
+        context.drawImage(this.image, this.sx, this.sy, this.spriteWidth, this.spriteHeight,this.x, this.y, this.spriteWidth*2, this.spriteHeight*2)
     }
 }
 

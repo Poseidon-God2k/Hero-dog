@@ -21,7 +21,7 @@ export default class InputHandler{
                     this.lastKey = "PRESS down";
                     break;
                 case "Space":
-                    this.activeKey = "Press space";
+                    this.activeKey = "PRESS space";
                     break;
             }
         });

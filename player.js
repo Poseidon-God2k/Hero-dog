@@ -46,6 +46,7 @@ class Player {
         this.speed = 0;
         this.maxSpeed = 10;
         this.actackBullets = []
+        this.prevKeyActtack = '';
     }
 
     draw(context){
@@ -93,10 +94,10 @@ class Player {
 
 
     acttack(input){
-        console.log(input.activeKey)
-        if(input.activeKey === "Press space"){
+        if(this.prevKeyActtack === "RELEASE space" && input.activeKey === "PRESS space"){
             this.actackBullets.push( new Bullet(this.gameWidth, this.gameHeight, this))
         }
+        this.prevKeyActtack = input.activeKey;
     }
 }
 
