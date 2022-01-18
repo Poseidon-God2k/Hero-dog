@@ -1,8 +1,9 @@
 export default class InputHandler{
     constructor(){
         this.lastKey = "";
+        this.activeKey = "";
         window.addEventListener('keydown', (e) => {
-            switch(e.key){
+            switch(e.code){
                 case "ArrowLeft":
                 case "a":
                     this.lastKey = "PRESS left";
@@ -19,10 +20,13 @@ export default class InputHandler{
                 case "s":
                     this.lastKey = "PRESS down";
                     break;
+                case "Space":
+                    this.activeKey = "Press space";
+                    break;
             }
         });
         window.addEventListener('keyup', (e) => {
-            switch(e.key){
+            switch(e.code){
                 case "ArrowLeft":
                 case "a":
                     this.lastKey = "RELEASE left";
@@ -38,6 +42,9 @@ export default class InputHandler{
                 case "ArrowDown":
                 case "s":
                     this.lastKey = "RELEASE down";
+                    break;
+                case "Space":
+                    this.activeKey = "RELEASE space";
                     break;
             }
         })

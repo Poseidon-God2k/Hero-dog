@@ -2,5 +2,7 @@ export const drawStatusText = (context, input, player) =>{
     context.font ='30px Poppins';
     context.fillText('Last input: '+ input.lastKey, 20, 50)
     context.font ='30px Poppins';
-    context.fillText('Active state: '+ player.currentState.state, 20, 100)
+    context.fillText('Last activeKey: '+ input.activeKey, 20, 80)
+    context.font ='30px Poppins';
+    context.fillText('Active state: '+ player.currentState.state, 20, 110)
 }
