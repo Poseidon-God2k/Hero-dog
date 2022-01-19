@@ -33,8 +33,10 @@ class Player {
         ];
         this.currentState = this.states[1];
         this.image = document.getElementById("dogImage");
-        this.width = 200;
-        this.height = 181.83;
+        this.spriteWidth = 200;
+        this.spriteHeight = 181.83;
+        this.width = 200/2;
+        this.height = 181.83/2;
         this.x = this.gameWidth/2 - this.width/2;
         this.y = this.gameHeight - this.height;
         this.vy = 0;
@@ -42,11 +44,12 @@ class Player {
         this.weight = 0.5;
         this.frameX = 0;
         this.frameY = 0;
-        this.maxFrame = 5;
+        this.maxFrame = 4;
         this.speed = 0;
         this.maxSpeed = 10;
         this.actackBullets = []
         this.prevKeyActtack = '';
+        this.score = 0;
     }
 
     draw(context){
@@ -56,7 +59,9 @@ class Player {
         else{
             this.frameX = 0;
         }
-        context.drawImage(this.image, this.width * this.frameX, this.height * this.frameY, this.width, this.height, this.x, this.y, this.width, this.height);
+        context.strokeRect(this.x, this.y, this.width, this.height);
+
+        context.drawImage(this.image, this.spriteWidth * this.frameX, this.spriteHeight * this.frameY, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height);
     }
     
     update(input){
@@ -98,6 +103,10 @@ class Player {
             this.actackBullets.push( new Bullet(this.gameWidth, this.gameHeight, this))
         }
         this.prevKeyActtack = input.activeKey;
+    }
+
+    addScore( score = 1){
+        this.score += score;
     }
 }
 

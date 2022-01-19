@@ -4,14 +4,13 @@ class Bullet {
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
         this.rightView = player.rightView;
+
         this.x = player.x;
         this.y = player.y;
         this.color = "red";
         this.active = true;
         
-        this.width = 20;
         this.radiant = 10;
-        this.height = 20;
         this.speed = 0;
         this.maxSpeed =  30; 
 
@@ -26,6 +25,10 @@ class Bullet {
         }
         this.spriteWidth = 48;
         this.spriteHeight = 14;
+
+        this.width = this.spriteWidth*2;
+        this.height = this.spriteHeight*2;
+
         this.frameX = 0;
         this.maxFrame = 4;
         this.sx = 12;
@@ -53,8 +56,8 @@ class Bullet {
             this.frameX = 0;
             this.sx = 12;
         }
-        console.log(this.sx)
-        context.drawImage(this.image, this.sx, this.sy, this.spriteWidth, this.spriteHeight,this.x, this.y, this.spriteWidth*2, this.spriteHeight*2)
+        context.strokeRect(this.x, this.y, this.width, this.height);
+        context.drawImage(this.image, this.sx, this.sy, this.spriteWidth, this.spriteHeight,this.x, this.y, this.width, this.height)
     }
 }
 
