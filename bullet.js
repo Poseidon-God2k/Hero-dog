@@ -16,11 +16,11 @@ class Bullet {
 
         this.image = new Image();
         if(this.rightView){
-            this.image.src = "bullet_right.png";
+            this.image.src = "image/bullet_right.png";
             this.sy = 210;
         }
         else{
-            this.image.src = "bullet_left.png"
+            this.image.src = "image/bullet_left.png"
             this.sy = 121;
         }
         this.spriteWidth = 48;

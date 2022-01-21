@@ -2,6 +2,7 @@ import Player from "./player.js"
 import InputHandler from "./input.js"
 import {drawStatusText} from "./utils.js"
 import Enemy from "./enemy.js"
+import Explosion from "./explosion.js"
 
 var timeToNextRaven  = 0;
 var ravenInterval = 1000;
@@ -25,6 +26,7 @@ window.addEventListener('load', function(){
     const player = new Player(canvas.width, canvas.height);
     const input = new InputHandler();
     let listEnemy = [];
+    let Explosions = [];
     
     function animate(timestamp){
         ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -55,10 +57,15 @@ window.addEventListener('load', function(){
                     //update hide raven and bullet
                     player.actackBullets[indexBullet].active = false;
                     listEnemy[indexRaven].active = false;
+                    Explosions.push(new Explosion(raven.x, raven.y, raven.width))
                 }
             })
-        })
-        
+        });
+
+        [...Explosions].forEach((explosion) => explosion.update(deltaTime));
+        [...Explosions].forEach((explosion) => explosion.draw(ctx));
+
+        Explosions = Explosions.filter((explosion) => explosion.active);
         listEnemy = listEnemy.filter((raven) => raven.active);
         player.actackBullets = player.actackBullets.filter(bullet => bullet.active);
         // console.log(player.actackBullets);

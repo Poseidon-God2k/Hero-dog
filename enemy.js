@@ -19,7 +19,7 @@ class Enemy {
         this.maxSpeed =  10; 
 
         this.image = new Image();
-        this.image.src = "raven.png";
+        this.image.src = "image/raven.png";
 
         this.frameX = 0;
         this.maxFrame = 4;

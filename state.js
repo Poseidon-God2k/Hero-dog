@@ -28,6 +28,7 @@ class StandingLeft extends State {
         this.player.frameY = 1;
         this.player.rightView = false;
         this.player.speed = 0;
+        this.player.weight = 0.5;
     }
 
     handleInput(input){
@@ -254,7 +255,7 @@ class RollingDownLeft extends State{
 
     handleInput(input){
         if ( this.player.onGround()){
-            this.player.setState(state.STANDING_RIGHT)
+            this.player.setState(state.STANDING_LEFT)
         }
     }
 }
